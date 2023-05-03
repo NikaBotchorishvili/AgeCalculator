@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { formDataContext, IContext } from "../context/Context";
 import Input from "./Input";
+import arrowIcon from "../assets/images/icon-arrow.svg";
 function Form() {
 	const { handleSubmit, errors, toggled }: IContext =
 		useContext(formDataContext);
@@ -38,7 +39,7 @@ function Form() {
 				}
 				className="button"
 			>
-				<img src="./src/assets/images/icon-arrow.svg" />
+				<img src={arrowIcon} />
 			</button>
 		</>
 	);
