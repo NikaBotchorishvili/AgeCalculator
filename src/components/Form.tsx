@@ -1,33 +1,18 @@
-import { useState } from "react";
-
+import { useContext } from 'react';
+import { formDataContext, IContext } from '../context/Context';
+import Input from "./Input";
 function Form() {
-	interface IFormData {
-		day: number;
-		month: number;
-		year: number;
-	}
-
-	const [formData, setFormData] = useState<IFormData>({
-		day: 0,
-		month: 0,
-		year: 0,
-	});
+	const { handleSubmit, errors }: IContext = useContext(formDataContext)
 
 	return (
-		<div className="form">
-			<div className="input-group">
-				<label htmlFor="day">Day</label>
-				<input type="number" name="day" />
-			</div>
-			<div className="input-group">
-				<label htmlFor="day">Month</label>
-				<input type="number" name="month" />
-			</div>
-			<div className="input-group">
-				<label htmlFor="day">Year</label>
-				<input type="number" name="year" />
-			</div>
-		</div>
+		<form className="form" onSubmit={(e) => handleSubmit?.(e)}>
+			<Input label="Day" type="number" name="day" placeholder="DD" error={errors?.dayError} />
+			<Input label="Month" type="number" name="month" placeholder="MM" error={errors?.monthError} />
+			<Input label="Year" type="number" name="year" placeholder="YYYY" error={errors?.yearError} />
+			<button className="button">
+				<img src="./src/assets/images/icon-arrow.svg" />
+			</button>
+		</form>
 	);
 }
 

@@ -3,6 +3,7 @@
 $purple: #874bff;
 $black: #161616;
 $gray: #6c6c6c;
+$red: #ba2b26;
 * {
 	margin: 0;
 	padding: 0;
@@ -61,13 +62,31 @@ $gray: #6c6c6c;
 				outline: unset;
 				border: 1px solid $purple;
 			}
+			.error{
+				text-align: center;
+				font-size: 0.65rem;
+				color: $red;
+			}
+		}
+		.button{
+			background: none;
+			border: none;
+			cursor: pointer;
+			position: relative;
+			img{
+				width: 100px;
+				top: 70px;
+				position: absolute;
+				background-color: $black;
+				border-radius: 100%;
+			}
 		}
 	}
 	.results-container{
 		display: flex;
+		align-items: flex-start;
 		font-weight: 600;
 		font-size: 2rem;
-		gap: 20px;
 		.results{
 			border-top: 1px solid $gray;
 			width: 80%;
@@ -80,12 +99,6 @@ $gray: #6c6c6c;
 				}
 			}
 		}
-		.button{
-			img{
-				scale: 2;
-				background-color: $black;
-				border-radius: 100%;
-			}
-		}
+
 	}
 }
