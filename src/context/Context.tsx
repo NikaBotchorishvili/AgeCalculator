@@ -23,6 +23,7 @@ export interface IContext {
 	handleSubmit: Function;
 	errors: IErrors;
 	age: Age,
+	toggled: boolean
 }
 
 export const formDataContext = createContext({});
@@ -45,6 +46,8 @@ export default function ContextProvider({ children }: IProps) {
 		monthError: null,
 		yearError: null,
 	});
+
+	const [toggled, setToggled] = useState(false);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -159,7 +162,10 @@ export default function ContextProvider({ children }: IProps) {
 		let isValid = validate(day, month, year);
 		if (isValid) {
 			let birthDate = new Date(year, month - 1, day);
+			setToggled(true)
 			calculateAge(birthDate);
+		}else{
+			setToggled(false)
 		}
 	};
 	const context: IContext = {
@@ -168,6 +174,7 @@ export default function ContextProvider({ children }: IProps) {
 		handleSubmit: handleSubmit,
 		errors: errors,
 		age: age,
+		toggled: toggled
 	};
 	return (
 		<formDataContext.Provider value={context}>

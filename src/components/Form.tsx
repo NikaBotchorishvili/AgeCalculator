@@ -1,18 +1,46 @@
-import { useContext } from 'react';
-import { formDataContext, IContext } from '../context/Context';
+import { useContext } from "react";
+import { formDataContext, IContext } from "../context/Context";
 import Input from "./Input";
 function Form() {
-	const { handleSubmit, errors }: IContext = useContext(formDataContext)
-
+	const { handleSubmit, errors, toggled }: IContext =
+		useContext(formDataContext);
 	return (
-		<form className="form" onSubmit={(e) => handleSubmit?.(e)}>
-			<Input label="Day" type="number" name="day" placeholder="DD" error={errors?.dayError} />
-			<Input label="Month" type="number" name="month" placeholder="MM" error={errors?.monthError} />
-			<Input label="Year" type="number" name="year" placeholder="YYYY" error={errors?.yearError} />
-			<button className="button">
+		<>
+			<form className="form">
+				<Input
+					label="Day"
+					type="number"
+					name="day"
+					placeholder="DD"
+					error={errors?.dayError}
+				/>
+				<Input
+					label="Month"
+					type="number"
+					name="month"
+					placeholder="MM"
+					error={errors?.monthError}
+				/>
+				<Input
+					label="Year"
+					type="number"
+					name="year"
+					placeholder="YYYY"
+					error={errors?.yearError}
+				/>
+			</form>
+			<button
+				onClick={(e) => handleSubmit?.(e)}
+				style={
+					toggled
+						? { backgroundColor: "#874bff" }
+						: { backgroundColor: "" }
+				}
+				className="button"
+			>
 				<img src="./src/assets/images/icon-arrow.svg" />
 			</button>
-		</form>
+		</>
 	);
 }
 
