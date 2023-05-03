@@ -12,21 +12,21 @@ function Form() {
 					type="number"
 					name="day"
 					placeholder="DD"
-					error={errors?.dayError}
+					error={errors?.dayError ?? null}
 				/>
 				<Input
 					label="Month"
 					type="number"
 					name="month"
 					placeholder="MM"
-					error={errors?.monthError}
+					error={errors?.monthError ?? null}
 				/>
 				<Input
 					label="Year"
 					type="number"
 					name="year"
 					placeholder="YYYY"
-					error={errors?.yearError}
+					error={errors?.yearError ?? null}
 				/>
 			</form>
 			<button

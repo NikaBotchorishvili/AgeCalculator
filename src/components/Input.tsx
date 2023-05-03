@@ -24,7 +24,7 @@ function Input(props: IInputProp) {
 						? formData[props.name as keyof typeof formData]
 						: ""
 				}
-				style={props.error && {borderColor: "red"}}
+				style={props.error ? { borderColor: "red" } : undefined}
 				onChange={(e) => handleChange?.(e)}
 			/>
 			<span className="error">{props.error}</span>

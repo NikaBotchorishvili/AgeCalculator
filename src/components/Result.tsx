@@ -9,7 +9,7 @@ function Result() {
 				<div className="result">
 					<h1>
 						<span className="counts">
-							{age.year != null ? age.year : "- -"}
+							{age?.year != null ? age.year : "- -"}
 						</span>
 						<span>Years</span>
 					</h1>
@@ -17,7 +17,7 @@ function Result() {
 				<div className="result">
 					<h1>
 						<span className="counts">
-							{age.month != null ? age.month : "- -"}
+							{age?.month != null ? age.month : "- -"}
 						</span>
 						<span>Months</span>
 					</h1>
@@ -25,7 +25,7 @@ function Result() {
 				<div className="result">
 					<h1>
 						<span className="counts">
-							{age.day != null ? age.day : "- -"}
+							{age?.day != null ? age.day : "- -"}
 						</span>
 						<span>Days</span>
 					</h1>

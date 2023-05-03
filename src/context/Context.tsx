@@ -18,12 +18,12 @@ interface IErrors {
 }
 
 export interface IContext {
-	formData: FormData;
-	handleChange: Function;
-	handleSubmit: Function;
-	errors: IErrors;
-	age: Age,
-	toggled: boolean
+	formData?: FormData;
+	handleChange?: Function;
+	handleSubmit?: Function;
+	errors?: IErrors;
+	age?: Age,
+	toggled?: boolean
 }
 
 export const formDataContext = createContext({});
