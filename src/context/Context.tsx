@@ -132,7 +132,6 @@ export default function ContextProvider({ children }: IProps) {
 			ageYear--;
 			ageMonth = -(currentMonth - bornMonth + 1);
 		}else if(monthDiff < 0 || (monthDiff === 0 && currentDay < bornDay)){
-			//	Possible Bug
 			ageYear--;
 		}else{
 			ageMonth = currentMonth - bornMonth;
